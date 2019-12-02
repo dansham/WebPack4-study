@@ -448,9 +448,11 @@ module.exports = {
 
 基本用法：在 webpack.config.js 中：
 
+因为clean-webpack-plugin最新版版本要求所以写法有改变：
+
 ```js
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -463,7 +465,7 @@ module.exports = {
         new HtmlWebpackPlugin({
         template: 'src/index.html' //在打包之后，以.html为模板，把打包生成的js自动引入到这个html文件中
     }),
-        new CleanWebpackPlugin(['dist']), // 在打包之前，可以删除dist文件夹下的所有内容
+        new CleanWebpackPlugin(), // 在打包之前，可以删除dist文件夹下的所有内容
     
     ]
 };
